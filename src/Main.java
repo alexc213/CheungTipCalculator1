@@ -1,6 +1,8 @@
 import java.util.Scanner;
+import java.text.DecimalFormat;
 public class Main {
     public static void main(String[] args) {
+        DecimalFormat formatter = new DecimalFormat("#.##");
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to the tip calculator!");
 
@@ -25,27 +27,30 @@ public class Main {
         while (input!=-1){
             while (input<0) {
                 System.out.print("Please enter -1 or a positive number: ");
-                input=scan.nextDouble();
+                input = scan.nextDouble();
                 scan.nextLine();
             }
-            System.out.print("Please enter a cost: ");
-            input=scan.nextDouble();
-            scan.nextLine();
-            totalCost+=input;
+            while(input!=-1) {
+                System.out.print("Please enter a cost or -1 to stop: ");
+                input = scan.nextDouble();
+                scan.nextLine();
+                totalCost += input;
+            }
         }
+
         double totalTip =  totalCost * (tipPercentage/100);
         double totalBill = totalCost + totalTip;
         double billPerPerson = totalCost/people;
         double tipPerPerson = totalTip/people;
         double totalCostPerPerson = billPerPerson + tipPerPerson;
         System.out.println();
-        System.out.println("Total bill before tip: " + totalCost);
-        System.out.println("Tip percentage: " + tipPercentage);
-        System.out.println("Total tip: " + totalTip);
-        System.out.println("Total bill with tip: " + totalBill);
-        System.out.println("Per person cost before tip: " + billPerPerson);
-        System.out.println("Tip per person: " + tipPerPerson);
-        System.out.println("Total cost per person: " + totalCostPerPerson);
+        System.out.println("Total bill before tip: " + formatter.format(totalCost));
+        System.out.println("Tip percentage: " + formatter.format(tipPercentage));
+        System.out.println("Total tip: " + formatter.format(totalTip));
+        System.out.println("Total bill with tip: " + formatter.format(totalBill));
+        System.out.println("Per person cost before tip: " + formatter.format(billPerPerson));
+        System.out.println("Tip per person: " + formatter.format(tipPerPerson));
+        System.out.println("Total cost per person: " + formatter.format(totalCostPerPerson));
 
     }
 }
