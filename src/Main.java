@@ -30,7 +30,7 @@ public class Main {
         if (input!=-1){
             totalCost=input;
         }
-        //asking for costs
+        //asking for other costs
         while (input!=-1){
             System.out.print("Please enter a cost or -1 to stop: ");
             input = scan.nextDouble();
