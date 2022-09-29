@@ -46,6 +46,7 @@ public class Main {
         double billPerPerson = totalCost/people;
         double tipPerPerson = totalTip/people;
         double totalCostPerPerson = billPerPerson + tipPerPerson;
+
         //printing
         System.out.println("Total bill before tip: " + formatter.format(totalCost));
         System.out.println("Tip percentage: " + formatter.format(tipPercentage));
